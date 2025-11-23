@@ -1,0 +1,8 @@
+#!/bin/bash
+for f in *.html; do
+    [ -e "$f" ] || continue
+
+    if [ ! -e "../$f" ] || [ "$f" -nt "../$f" ]; then
+        cp -p "$f" ../
+    fi
+done
